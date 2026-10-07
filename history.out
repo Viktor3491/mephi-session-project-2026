@@ -478,3 +478,19 @@
   478  echo "=== ping.out ==="; cat ~/mephi-session/ping.out
   479  grep -v '^#' ~/mephi-session/pwquality.conf | grep minlen
   480  history > ~/mephi-session/history.out
+  481  wc -l ~/mephi-session/history.out
+  482  curl http://localhost/
+  483  import -window root ~/mephi-session/mephi-screenshot.png
+  484  ls -lh ~/mephi-session/mephi-screenshot.png
+  485  file ~/mephi-session/mephi-screenshot.png
+  486  nano ~/mephi-session//README.md
+  487  nano ~/mephi-session/README.md
+  488  cd ~/mephi-session
+  489  git init
+  490  git add .
+  491  git commit -m "Add MEPHI session project 2026 files"
+  492  git branch -M main
+  493  git remote add origin https://github.com/Viktor3491/mephi-session-project-2026.git
+  494  git remote -v
+  495  git push -u origin main
+  496  history > ~/mephi-session/history.out
