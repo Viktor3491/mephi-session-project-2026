@@ -1,0 +1,480 @@
+    1  sudo dumpe2fs -h /dev/sda1 | grep 'Block size'
+    2  exit
+    3  su
+    4  exit
+    5  ls dir
+    6  exit
+    7  pwd
+    8  ls
+    9  ls --help
+   10  ls -al
+   11  ls -at
+   12  ~
+   13  ~ Desktop
+   14  cd ..
+   15  cd ~
+   16  mkdir Dev
+   17  cd Dev
+   18  mkdir first_project
+   19  cd first_project
+   20  touch practicum.py
+   21  touch example.txt
+   22  ls
+   23  nano practicum.py
+   24  cd ..
+   25  mkdir second_project third_project
+   26  cd third_project
+   27  touch bolek.txt
+   28  touch lelek.txt
+   29  rm bolek.txt
+   30  rmdir second_project
+   31  cd ..
+   32  rmdir second_project
+   33  rmdir third_project
+   34  rm -r third_project
+   35  --help
+   36  cd --help
+   37  ls --help
+   38  ~
+   39  cd ..
+   40  version
+   41  lsb_release -a
+   42  getenforce
+   43  mount | grep /home
+   44  clear
+   45  whoami
+   46  id
+   47  sudo -v
+   48  su -
+   49  id
+   50  getent group wheel
+   51  sudo -v
+   52  exit
+   53  su -
+   54  id
+   55  sudo -v
+   56  getent passwd user1
+   57  getent group students
+   58  getent passwd 1234
+   59  mkdir -p ~/mephi-hw
+   60  cd ~/mephi-hw
+   61  sudo setenforce 0
+   62  sudo sed -i 's/^SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
+   63  getenforce
+   64  cat /etc/selinux/config | grep ^SELINUX=
+   65  sudo groupadd students
+   66  getent group students
+   67  sudo useradd -u 1234 -G students -m -s /bin/bash user1
+   68  sudo passwd user1
+   69  sudo chage -M 90 user1
+   70  id user1
+   71  chage -l user1
+   72  sudo chage -l user1
+   73  grep user1 /etc/passwd /etc/group
+   74  sudo grep user1 /etc/shadow
+   75  sudo cp /etc/passwd ~/mephi/hw/passwd
+   76  pwd
+   77  whoami
+   78  echo "HOME=$HOME"
+   79  ls -la ~/
+   80  ls -ld ~/mephi-hw 2>&1
+   81  sudo cp /etc/passwd ~/mephi-hw/passwd
+   82  sudo cp /etc/shadow ~/mephi-hw/shadow
+   83  sudo cp /etc/group ~/mephi-hw/group
+   84  sudo chown $USER:$USER ~/mephi-hw/passwd ~/mephi-hw/shadow ~/mephi-hw/group
+   85  chmod 600 ~/mephi-hw/shadow
+   86  ls -l ~/mephi-hw/
+   87  sudo find / -perm -4000 -type f 2>/dev/null | tee ~/mephi-hw/suid_files.out
+   88  ps -eo pid,ruid,euid,comm | awk '$3 == 0 && $2 != 0' | tee ~/mephi-hw/privileged_procs.out
+   89  cp /usr/bin/cat ~/mephi-hw/cat_suid
+   90  sudo chown root:root ~/mephi-hw/cat_suid
+   91  sudo chmod u+s ~/mephi-hw/cat_suid
+   92  ls -l ~/mephi-hw/cat_suid
+   93  ~/mephi-hw/cat_suid /etc/shadow
+   94  stat ~/mephi-hw/stat.out
+   95  stat ~/mephi-hw/cat_suid >> ~/mephi-hw/stat.out
+   96  cp /usr/bin/chown ~/mephi-hw/chown_cap
+   97  sudo setcap cap_chown+ep ~/mephi-hw/chown_cap
+   98  getcap ~/mephi-hw/chown_cap | tee ~/mephi-hw/getcap.out
+   99  touch ~/testfile
+  100  ls -l ~/testfile
+  101  ~/mephi-hw/chown_cap root ~/testfile
+  102  ls -l ~/testfile
+  103  stat ~/mephi-hw/chown_cap >> ~/mephi-hw/stat.out
+  104  which timedatectl
+  105  sudo visudo -f /etc/sudoers.d/user1-time
+  106  sudo -u user1 sudo -l
+  107  sudo timedatectl set-ntp false
+  108  sudo -u user1 sudo timedatectl set-time "2026-09-01 08:00:00"
+  109  sudo timedatectl set-ntp true
+  110  sudo cp /etc/sudoers ~/mephi-hw/sudoers
+  111  sudo cp /etc/sudoers.d/user1-time ~/mephi-hw/user1-time
+  112  sudo chown $USER:$USER ~/mephi-hw/sudoers ~/mephi-hw/user1-time
+  113  echo "374538"
+  114  ~/mephi-hw/mephi-screenshot.png
+  115  ls -la ~/mephi-hw/
+  116  gnome-screenshot -f ~/mephi-hw/mephi-screenshot.png
+  117  spectacle -b -o ~/mephi-hw/mephi-screenshot.png
+  118  echo "374538"
+  119  scrot ~/mephi-hw/mephi-screenshot.png
+  120  import -window root ~/mephi-hw/mephi-screenshot.png
+  121  ls -l ~/mephi-hw/mephi-screenshot.png
+  122  file ~/mephi-hw/mephi-screenshot.png
+  123  ls -la ~/mephi-hw/
+  124  history > ~/mephi-hw/history.out
+  125  ls -la ~/mephi-hw/
+  126  cd ~/mephi-hw
+  127  ls -la
+  128  git --version
+  129  nano ~/mephi-hw/README.md
+  130  git init
+  131  git status
+  132  git add
+  133  git add .
+  134  git status
+  135  git commit -m "Add MEPHI homework 2026 files"
+  136  git branch -M main
+  137  git remote add origin https://github.com/Viktor3491/mephi-linux-security-2026.git
+  138  git push -u origin main
+  139  uname -m
+  140  cat /proc/sys/kernel/pid_max
+  141  pstree
+  142  cat /proc/$$/status
+  143  ps
+  144  cat /proc/2364/
+  145  cat /proc/2364/status
+  146  exit
+  147  cat /proc/2364/status
+  148  cat /proc/$$/status
+  149  cat /proc/2029/status
+  150  exit
+  151  cat /proc/$$/status
+  152  exit
+  153  lsblk
+  154  --nodeps
+  155  lsblk --nodeps
+  156  hostname
+  157  hostnamectl
+  158  cat /etc/redos-release
+  159  clean
+  160  exit
+  161  cat /etc/redos-release
+  162  lsblk
+  163  ip -br a
+  164  hostnamectl
+  165  getenforce
+  166  sudo -v
+  167  mv ~/mephi-hw ~mephi-hw-old
+  168  sudo pkill -u user1 2>/dev/null
+  169  sudo userdel -r user1 2>/dev/null
+  170  sudo groupdel students 2>/dev/null
+  171  getent passwd user1
+  172  getent group students
+  173  getent passwd 5501
+  174  getent group 4444
+  175  nmcli con show
+  176  sudo nmcli con mod "soft_wifi_line" ipv4.method auto
+  177  sudo nmcli con mod "soft_wifi_line" ipv4.address ""
+  178  sudo nmcli con mod "soft_wifi_line" ipv4.gateway ""
+  179  sudo nmcli con mod "soft_wifi_line" ipv4.dns ""
+  180  sudo nmcli con up "soft_wifi_line"
+  181  ip -br a
+  182  sudo hostnamectl set-hostname mephi-web
+  183  hostnamectl | grep hostname
+  184  ping -c 4 8.8.8.8 > ~/ping.out
+  185  cat ~/ping.out
+  186  sudo dnf update -y
+  187  sudo hostnamectl set-hostname mephi-2026.domain.local
+  188  echo "127.0.0.1 mephi-2026.domain.local mephi-2026" | sudo tee -a /etc/hosts
+  189  hostnamectl | grep -i hostname
+  190  hostname -f
+  191  cat /etc/hostname
+  192  cat /etc/hosts
+  193  nmcli con show
+  194  sudo nmcli con mod "soft_wifi_line" ipv4.method auto
+  195  sudo nmcli con mod "soft_wifi_line" ipv4.addresses ""
+  196  sudo nmcli con mod "soft_wifi_line" ipv4.gateway ""
+  197  sudo nmcli con mod "soft_wifi_line" ipv4.dns ""
+  198  sudo nmcli con up "soft_wifi_line"
+  199  ip -br a
+  200  ping -c 4 8.8.8.8 > ~/ping.out
+  201  cat ~/ping.out
+  202  ip -br a
+  203  ip route
+  204  ping -c 4 $(ip route | awk '/default/ {print $3; exit}')
+  205  ping -c 4 1.1.1.1
+  206  nslookup ya.ru 2>/dev/null || host ya.ru
+  207  sudo hostnamectl set-hostname mephi-2026.domain.local
+  208  echo "127.0.0.1 mephi-2026.domain.local mephi-2026" | sudo tee -a /etc/hosts
+  209  hostnamectl | grep -i hostname
+  210  hostname -f
+  211  nmcli -f IN-USE,SSID,SIGNAL,RATE dev wifi | head -20
+  212  ping -c 4 8.8.8.8 > ~/ping.out
+  213  cat ~/ping.out
+  214  hostnamectl | grep -i hostname
+  215  hostname -f
+  216  cat /etc/hostname
+  217  cat /etc/hosts
+  218  sudo dnf update -y
+  219  sudo dnf install nginx libcap-ng-utils -y
+  220  nginx -v
+  221  which getcap setcap
+  222  rpm -q nginx libcap-ng-utils
+  223  cd /tmp
+  224  sudo dnf download tcpdump
+  225  ls -l /tmp/tcpdump*.rpm
+  226  sudo rpm -ivh /tmp/tcpdump-*.rpm
+  227  uname -m
+  228  ls -lh /tmp/tcpdump*.rpm
+  229  sudo rm -f /tmp/tcpdump-4.99.5-1.red80.i686.rpm
+  230  ls -lh /tmp/tcpdump*.rpm
+  231  sudo rpm -ivh /tmp/tcpdump-4.99.5-1.red80.x86_64.rpm
+  232  which tcpdump
+  233  tcpdump --version
+  234  rpm -q tcpdump
+  235  sudo dnf history > ~/dnf.out
+  236  wc -l ~/dnf.out
+  237  tail -20 ~/dnf.out
+  238  dd if=/dev/zero of=/home/user/mephi-web.img bs=1M count=2048 status=progress
+  239  ls -lh /home/user/mephi-web.img
+  240  sudo losetup -fP /home/user/mephi-web.img
+  241  losetup -a
+  242  sudo parted /dev/loop0 --script mklabel gpt mkpart primary ext4 0% 100%
+  243  sudo partprobe /dev/loop0
+  244  lsblk /dev/loop0
+  245  sudo mkfs.ext4 -L MEPHI_WEB /dev/loop0p1
+  246  sudo blkid /dev/loop0p1
+  247  sudo mkdir -p /mephi-web
+  248  echo 'LABEL=MEPHI_WEB /mephi-web ext4 defaults 0 0' | sudo tee -a /etc/fstab
+  249  tail -3 /etc/fstab
+  250  sudo tee /etc/systemd/system/mephi-web-loop.service > /dev/null <<'EOF'
+  251  [Unit]
+  252  Description=Setup loop device for /mephi-web
+  253  DefaultDependencies=no
+  254  Before=local-fs.target
+  255  After=systemd-udev-settle.service
+  256  Requires=systemd-udev-settle.service
+  257  [Service]
+  258  Type=oneshot
+  259  RemainAfterExit=yes
+  260  ExecStart=/sbin/losetup -fP /home/user/mephi-web.img
+  261  [Install]
+  262  WantedBy=local-fs.target
+  263  EOF
+  264  sudo systemctl daemon-reload
+  265  sudo systemctl enable mephi-web-loop.service
+  266  sudo moun -a
+  267  sudo mount -a
+  268  df -h | grep mephi-web
+  269  mount | grep mephi-web
+  270  sudo reboot
+  271  whoami
+  272  hostnamectl | grep hostname
+  273  systemctl status mephi-web-loop.service 2>&1 | head -15
+  274  losetup -a
+  275  sudo tee /etc/systemd/system/mephi-web-loop.service > /dev/null <<'EOF'
+  276  [Unit]
+  277  Description=Setup loop device for /mephi-web
+  278  DefaultDependencies=no
+  279  Before=local-fs.target
+  280  After=systemd-udev-settle.service
+  281  Requires=systemd-udev-settle.service
+  282  [Service]
+  283  Type=oneshot
+  284  RemainAfterExit=yes
+  285  ExecStart=/sbin/losetup -fP /home/user/mephi-web.img
+  286  [Install]
+  287  WantedBy=local-fs.target
+  288  Description=Setup loop device for /mephi-web
+  289  DefaultDependencies=no
+  290  Before=local-fs.target
+  291  After=systemd-udev-settle.service
+  292  Requires=systemd-udev-settle.service
+  293  RequiresMountsFor=/home/user
+  294  [Service]
+  295  Type=oneshot
+  296  RemainAfterExit=yes
+  297  ExecStart=/sbin/losetup -fP /home/user/mephi-web.img
+  298  [Install]
+  299  WantedBy=local-fs.target
+  300  cat /etc/systemd/system/mephi-web-loop.service
+  301  sudo nano /etc/systemd/system/mephi-web-loop.service
+  302  cat /etc/systemd/system/mephi-web-loop.service
+  303  sudo systemctl daemon-reload
+  304  sudo systemctl start mephi-web-loop.service
+  305  systemctl status mephi-web-loop.service
+  306  losetup -a
+  307  lsblk /dev/loop0
+  308  sudo nano /etc/fstab
+  309  tail -2 /etc/fstab
+  310  sudo mount -a
+  311  df -h | grep mephi-web
+  312  sudo nano /etc/fstab
+  313  sudo systemctl daemon-reload
+  314  sudo reboot
+  315  ping -c 4 127.0.0.1
+  316  whoami
+  317  hostnamectl | grep hostname
+  318  df -h | grep mephi-web
+  319  systemctl status mephi-web-loop.service
+  320  losetup -a
+  321  sudo systemctl enable --now nginx
+  322  systemctl status nginx
+  323  sudo journalctl -u nginx -b --no-pager > ~/journalctl.out
+  324  wc -l ~/journalctl.out
+  325  head -5 ~/journalctl.out
+  326  getent passwd user1
+  327  getent group students
+  328  ip -br a
+  329  hostnamectl | grep -E "hostname|Operating"
+  330  sudo groupadd -g 4444 curators
+  331  getent group curators
+  332  sudo useradd -u 5501 -m user1
+  333  sudo useradd -u 5502 -m user2
+  334  sudo useradd -u 5503 -m user3
+  335  sudo useradd -m curator1
+  336  sudo useradd -m curator2
+  337  sudo passwd user1
+  338  sudo passwd user2
+  339  sudo passwd user3
+  340  sudo passwd curator1
+  341  sudo passwd curator2
+  342  sudo usermod -aG curators curator1
+  343  sudo usermod -aG curators curator2
+  344  id user1
+  345  id curator1
+  346  sudo groupadd devs
+  347  sudo usermod -aG devs user1
+  348  sudo usermod -aG devs user2
+  349  sudo usermod -aG devs user3
+  350  sudo mkdir -p /data/mephi-2026
+  351  sudo chown root:devs /data/mephi-2026
+  352  sudo chmod 2770 /data/mephi-2026
+  353  sudo setfacl -m g:devs:rwx /data/mephi-2026
+  354  sudo setfacl -m g:curators:rx /data/mephi-2026
+  355  sudo setfacl -m o::- /data/mephi-2026
+  356  sudo setfacl -m m::rwx /data/mephi-2026
+  357  sudo setfacl -d -m g:devs:rwx /data/mephi-2026
+  358  sudo setfacl -d -m g:curators:rx /data/mephi-2026
+  359  sudo setfacl -d -m o::- /data/mephi-2026
+  360  sudo setfacl -d -m m::rwx /data/mephi-2026
+  361  getent group curators
+  362  id user1
+  363  id curator1
+  364  ls -ld /data/mephi-2026
+  365  getfacl /data/mephi-2026
+  366  sudo -u user1 touch /data/mephi-2026/test.txt
+  367  sudo -u user1 bash -c 'echo "from user1" > /data/mephi-2026/test.txt'
+  368  ls -la /data/mephi-2026
+  369  sudo -u user2 cat /data/mephi-2026/test.txt
+  370  sudo -u user2 bash -c 'echo "from user2" >> /data/mephi-2026/test.txt'
+  371  sudo -u user2 cat /data/mephi-2026/test.txt
+  372  sudo -u user3 bash -c 'echo "from user3" >> /data/mephi-2026/test.txt'
+  373  sudo -u user3 cat /data/mephi-2026/test.txt
+  374  sudo -u curator1 cat /data/mephi-2026/test.txt
+  375  sudo -u curator1 bash -c 'echo x >> /data/mephi-2026/test.txt'
+  376  sudo -u curator2 cat /data/mephi-2026/test.txt
+  377  sudo -u curator2 bash -c 'echo x >> /data/mephi-2026/test.txt'
+  378  cat /data/mephi-2026/test.txt
+  379  ls /data/mephi-2026/
+  380  getfacl /data/mephi-2026/test.txt
+  381  sudo getfacl /data/mephi-2026/test.txt
+  382  stat /data/mephi-2026 > ~/stat.out
+  383  stat /mephi-web >> ~/stat.out
+  384  cat ~/stat.out
+  385  ls -l /usr/sbin/tcpdump
+  386  getcap /usr/sbin/tcpdump
+  387  sudo chmod u-s /usr/sbin/tcpdump
+  388  sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
+  389  getcap /usr/sbin/tcpdump
+  390  sudo -u user1 tcpdump -c 4 -i lo
+  391  getcap /usr/sbin/tcpdump > ~/getcap.out
+  392  cat ~/getcap.out
+  393  cat ~/stat.out
+  394  getenforce
+  395  systemctl status nginx | head -5
+  396  nginx -T 2>/dev/null | grep -E "root|server_name" | head -5
+  397  sudo setenforce 1
+  398  getenforce
+  399  sudo sed -i 's/^SELINUX=permissive/SELINUX=enforcing/' /etc/selinux/config
+  400  grep ^SELINUX= /etc/selinux/config
+  401  sudo dnf install policycoreutils-python-utils -y
+  402  which semanage restorecon
+  403  sudo semanage fcontext -l | grep -E "httpd_sys_content_t" | head -5
+  404  sudo semanage fcontext -a -t httpd_sys_content_t "/mephi-web(/.*)?"
+  405  sudo restorecon -Rv /mephi-web
+  406  ls -Zd /mephi-web
+  407  ls /etc/nginx/
+  408  ls /etc/nginx/conf.d/ 2>/dev/null
+  409  sudo nano /etc/nginx/nginx.conf
+  410  sudo nginx -t
+  411  sudo systemctl restart nginx
+  412  systemctl status nginx | head -5
+  413  echo "Hello from Student: M265872" | sudo tee /mephi-web/index.html
+  414  sudo chmod 644 /mephi-web/index.html
+  415  ls -la /mephi-web/
+  416  ls -Z /mephi-web/index.html
+  417  curl http://localhost/
+  418  ls -Zd /mephi-web > ~/stat.out.tmp
+  419  cat ~/stat.out.tmp
+  420  ls -Zd /mephi-web >> ~/stat.out
+  421  getenforce > ~/getenforce.out
+  422  cat ~/getenforce.out
+  423  curl http://localhost/ > ~/curl.out
+  424  cat ~/curl.out
+  425  sudo usermod -s /sbin/nologin curator1
+  426  sudo usermod -s /sbin/nologin curator2
+  427  grep curator /etc/passwd
+  428  sudo sed -i 's/^PASS_MAX_DAYS.*/PASS_MAX_DAYS   90/' /etc/login.defs
+  429  grep PASS_MAX_DAYS /etc/login.defs
+  430  sudo chage -M 90 user1 user2 user3 curator1 curator2
+  431  sudo chage -l user1 | grep Maximum
+  432  sudo chage -M 90 user1
+  433  sudo chage -M 90 user2
+  434  sudo chage -M 90 user3
+  435  sudo chage -M 90 curator1
+  436  sudo chage -M 90 curator2
+  437  sudo chage -l user1 | grep Maximum
+  438  for u in user1 user2 user3 curator1 curator2; do echo "=== $u ==="; sudo chage -l "$u" | grep -i maximum; done
+  439  sudo chage -l user1
+  440  sudo dnf install libpwquality -y
+  441  sudo nano /etc/security/pwquality.conf
+  442  grep -v '^#' /etc/security/pwquality.conf | grep minlen
+  443  sudo cp /etc/security/pwquality.conf ~/pwquality.conf
+  444  sudo chown $USER:$USER ~/pwquality.conf
+  445  ls -l ~/pwquality.conf
+  446  history > ~/mephi-session/history.out
+  447  mkdir -p ~/mephi-session
+  448  history > ~/mephi-session/history.out
+  449  wc -l ~/mephi-session/history.out
+  450  ls -la ~/
+  451  sudo systemctl poweroff
+  452  hostnamectl | grep hostname
+  453  getenforce
+  454  df -h | grep mephi-web
+  455  systemctl status nginx | head -3
+  456  curl http://localhost/
+  457  ls -ld ~/mephi-session
+  458  cd ~/mephi-session
+  459  cp ~/ping.out ~/mephi-session/
+  460  cp ~/dnf.out ~/mephi-session/
+  461  cp ~/stat.out ~/mephi-session/
+  462  cp ~/journalctl.out ~/mephi-session/
+  463  cp ~/getcap.out ~/mephi-session/
+  464  cp ~/getenforce.out ~/mephi-session/
+  465  cp ~/curl.out ~/mephi-session/
+  466  cp ~/pwquality.conf ~/mephi-session/
+  467  sudo cp /etc/fstab ~/mephi-session/fstab
+  468  sudo cp /etc/passwd ~/mephi-session/passwd
+  469  sudo cp /etc/shadow ~/mephi-session/shadow
+  470  sudo cp /etc/group ~/mephi-session/group
+  471  sudo chown $USER:$USER ~/mephi-session/fstab ~/mephi-session/passwd ~/mephi-session/shadow ~/mephi-session/group
+  472  chmod 600 ~/mephi-session/shadow
+  473  ls -Zd /mephi-web >> ~/mephi-session/stat.out
+  474  ls -la ~/mephi-session/
+  475  echo "=== curl.out ==="; cat ~/mephi-session/curl.out
+  476  echo "=== getenforce.out ==="; cat ~/mephi-session/getenforce.out
+  477  echo "=== getcap.out ==="; cat ~/mephi-session/getcap.out
+  478  echo "=== ping.out ==="; cat ~/mephi-session/ping.out
+  479  grep -v '^#' ~/mephi-session/pwquality.conf | grep minlen
+  480  history > ~/mephi-session/history.out

@@ -1,0 +1,8 @@
+Иденти | Командная строка                                                                 | Дата и время     | Действия       | Изменен
+---------------------------------------------------------------------------------------------------------------------------------------
+     6 | install nginx libcap-ng-utils -y                                                 | 2026-10-06 20:26 | Install        |    5   
+     5 | update -y                                                                        | 2026-10-06 19:37 | I, O, U        |  103 EE
+     4 |                                                                                  | 2026-09-12 20:09 | I, O, U        |  186 E<
+     3 | autoremove -y --setopt=metadata_expire=-1                                        | 2026-09-07 17:43 | Removed        |    2 ><
+     2 | remove -y --setopt=metadata_expire=-1 virtualbox-guest-additions open-vm-tools x | 2026-09-07 17:37 | Removed        |    5 >E
+     1 |                                                                                  | 2026-09-07 16:28 | Install        | 1980 EE
